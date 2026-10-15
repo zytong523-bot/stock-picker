@@ -1,5 +1,5 @@
 {
- "date": "2026-10-15",
+ "date": "2026-10-14",
  "market": "A股",
  "stocks": [
   {
@@ -384,7 +384,7 @@
    "roe": 12.02,
    "volRatio": 1.24,
    "high52w": 88.95,
-   "low52w": 68.69,
+   "low52w": 67.98,
    "offHighPct": -5.9,
    "spark": [
     82.67,
@@ -506,9 +506,9 @@
    "rsi12": 66.1,
    "roe": 7.43,
    "volRatio": 1.24,
-   "high52w": 107.23,
+   "high52w": 107.39,
    "low52w": 77.91,
-   "offHighPct": -24.1,
+   "offHighPct": -24.2,
    "spark": [
     91.42,
     93.79,
@@ -885,9 +885,9 @@
    "rsi12": 68.2,
    "roe": 8.56,
    "volRatio": 0.86,
-   "high52w": 66.74,
+   "high52w": 67.92,
    "low52w": 42.67,
-   "offHighPct": -31.8,
+   "offHighPct": -33.0,
    "spark": [
     57.5,
     55.99,
