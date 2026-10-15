@@ -3,6 +3,7 @@
 import json
 import subprocess
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(r"C:\Users\Administrator\Documents\Kimi\Workspaces\热量\stock-picker")
@@ -23,8 +24,8 @@ STOCKS = [
     "601398.SH",  # 工商银行
 ]
 
-END_DATE = "2026-10-15"
-START_DATE = "2025-10-15"  # 1 year
+END_DATE = date.today().isoformat()
+START_DATE = (date.today() - timedelta(days=370)).isoformat()
 
 
 def call(api, params):

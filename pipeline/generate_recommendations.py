@@ -236,8 +236,11 @@ def main():
     roes = load_roe()
     stocks = [score_stock(t, prices[t], tech.get(t, {}), info, roes.get(t)) for t in STOCKS]
     stocks.sort(key=lambda s: s["score"], reverse=True)
+    # 数据日期 = 最新一根日K的日期（非交易日运行时自动落在上一个交易日）
+    last_time = prices[STOCKS[0]][-1]["time"]  # YYYYMMDD
+    data_date = f"{last_time[:4]}-{last_time[4:6]}-{last_time[6:8]}"
     payload = {
-        "date": "2026-10-15",
+        "date": data_date,
         "market": "A股",
         "stocks": stocks,
         "counts": {
