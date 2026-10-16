@@ -196,7 +196,7 @@ export default function Home() {
         </Tabs>
 
         <footer className="text-center text-xs text-muted-foreground pb-8 leading-relaxed">
-          数据来源：iFinD（同花顺），基于 2026-10-15 收盘数据 · 本页面仅供学习研究，不构成任何投资建议
+          数据来源：iFinD（同花顺），基于 {data.date} 收盘数据 · 本页面仅供学习研究，不构成任何投资建议
           <br />股市有风险，投资需谨慎
         </footer>
       </div>

@@ -2,10 +2,18 @@ import type { RecommendationData } from '@/types/recommendation'
 import type { Holding } from '@/lib/advice'
 
 export interface SyncConfig {
-  dataUrl: string // 推荐数据 JSON 地址，留空 = 同源 /data/recommendations.json
+  dataUrl: string // 推荐数据 JSON 地址，留空 = 部署目录下的 data/recommendations.json（自动适配子路径）
   supabaseUrl: string // 留空 = 仅本机模式
   supabaseKey: string // Supabase anon public key
   ownerKey: string // 自己设的同步密钥，相当于密码
+}
+
+// Vite 的部署基路径：本地开发 = '/'，GitHub Pages 项目站点 = '/stock-picker/'，
+// vite.config.ts 里 base: './' 时代 = './'。统一补成"以 / 结尾"，再拼接数据文件名。
+const BASE = import.meta.env.BASE_URL || '/'
+
+function defaultDataUrl(): string {
+  return `${BASE.replace(/\/?$/, '/')}data/recommendations.json`
 }
 
 const CONFIG_KEY = 'stock-picker-sync-config'
@@ -35,7 +43,7 @@ export function cloudReady(cfg: SyncConfig): boolean {
 }
 
 export async function fetchRecommendations(cfg: SyncConfig): Promise<RecommendationData> {
-  const url = cfg.dataUrl.trim() || '/data/recommendations.json'
+  const url = cfg.dataUrl.trim() || defaultDataUrl()
   const r = await fetch(url)
   if (!r.ok) throw new Error(`数据请求失败 HTTP ${r.status}`)
   return (await r.json()) as RecommendationData

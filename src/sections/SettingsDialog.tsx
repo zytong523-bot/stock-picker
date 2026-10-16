@@ -113,6 +113,9 @@ export default function SettingsDialog({ onChanged }: { onChanged: (cfg: SyncCon
               onChange={(e) => setCfg({ ...cfg, dataUrl: e.target.value.trim() })}
               placeholder="https://你的域名/recommendations.json"
             />
+            <p className="text-xs text-muted-foreground mt-1">
+              留空时自动读取部署目录下的 data/recommendations.json，部署到子路径（如 GitHub Pages）也能正确加载。
+            </p>
           </div>
         </div>
 
